@@ -1,0 +1,54 @@
+{
+  "interactions": [
+    {
+      "id": "1",
+      "contactId": "1",
+      "type": "email",
+      "subject": "Project Kickoff Discussion",
+      "content": "Thank you for choosing our CRM solution. Let's schedule a kickoff meeting to discuss the implementation timeline.",
+      "direction": "outbound",
+      "userId": "user_1",
+      "timestamp": "2024-01-20T14:15:00Z"
+    },
+    {
+      "id": "2",
+      "contactId": "2",
+      "type": "call",
+      "subject": "Initial Consultation",
+      "content": "30-minute call to understand business requirements and current tech stack.",
+      "direction": "inbound",
+      "userId": "user_2",
+      "timestamp": "2024-01-18T16:30:00Z"
+    },
+    {
+      "id": "3",
+      "contactId": "3",
+      "type": "meeting",
+      "subject": "Creative Brief Review",
+      "content": "In-person meeting to review the creative brief and discuss campaign objectives.",
+      "direction": "meeting",
+      "userId": "user_3",
+      "timestamp": "2024-01-18T10:20:00Z"
+    },
+    {
+      "id": "4",
+      "contactId": "4",
+      "type": "email",
+      "subject": "Follow-up on Demo",
+      "content": "Following up on yesterday's product demonstration. Do you have any questions about the inventory features?",
+      "direction": "outbound",
+      "userId": "user_4",
+      "timestamp": "2024-01-19T15:45:00Z"
+    },
+    {
+      "id": "5",
+      "contactId": "5",
+      "type": "call",
+      "subject": "Implementation Progress",
+      "content": "Weekly progress call to discuss implementation milestones and address any concerns.",
+      "direction": "outbound",
+      "userId": "user_1",
+      "timestamp": "2024-01-21T12:10:00Z"
+    }
+  ]
+}

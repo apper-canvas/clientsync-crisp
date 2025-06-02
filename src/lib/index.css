@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 248 250 252;
+    --foreground: 15 23 42;
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+    --primary: 99 102 241;
+    --primary-foreground: 248 250 252;
+    --secondary: 241 245 249;
+    --secondary-foreground: 15 23 42;
+    --muted: 248 250 252;
+    --muted-foreground: 100 116 139;
+    --accent: 236 254 255;
+    --accent-foreground: 15 23 42;
+    --destructive: 239 68 68;
+    --destructive-foreground: 248 250 252;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 99 102 241;
+    --chart-1: 99 102 241;
+    --chart-2: 34 197 94;
+    --chart-3: 251 191 36;
+    --chart-4: 239 68 68;
+    --chart-5: 168 85 247;
+    --radius: 0.75rem;
+    --sidebar-background: 255 255 255;
+    --sidebar-foreground: 71 85 105;
+    --sidebar-primary: 99 102 241;
+    --sidebar-primary-foreground: 248 250 252;
+    --sidebar-accent: 241 245 249;
+    --sidebar-accent-foreground: 15 23 42;
+    --sidebar-border: 226 232 240;
+    --sidebar-ring: 99 102 241;
+    --crm-primary: 99 102 241;
+    --crm-primary-foreground: 248 250 252;
+    --crm-secondary: 139 92 246;
+    --crm-secondary-foreground: 248 250 252;
+    --crm-success: 34 197 94;
+    --crm-warning: 251 191 36;
+    --crm-info: 59 130 246;
+    --crm-danger: 239 68 68;
+  }
+  .dark {
+    --background: 2 6 23;
+    --foreground: 248 250 252;
+    --card: 15 23 42;
+    --card-foreground: 248 250 252;
+    --popover: 15 23 42;
+    --popover-foreground: 248 250 252;
+    --primary: 129 140 248;
+    --primary-foreground: 15 23 42;
+    --secondary: 30 41 59;
+    --secondary-foreground: 248 250 252;
+    --muted: 30 41 59;
+    --muted-foreground: 148 163 184;
+    --accent: 30 41 59;
+    --accent-foreground: 248 250 252;
+    --destructive: 220 38 38;
+    --destructive-foreground: 248 250 252;
+    --border: 30 41 59;
+    --input: 30 41 59;
+    --ring: 129 140 248;
+    --chart-1: 129 140 248;
+    --chart-2: 34 197 94;
+    --chart-3: 251 191 36;
+    --chart-4: 239 68 68;
+    --chart-5: 168 85 247;
+    --sidebar-background: 15 23 42;
+    --sidebar-foreground: 148 163 184;
+    --sidebar-primary: 129 140 248;
+    --sidebar-primary-foreground: 15 23 42;
+    --sidebar-accent: 30 41 59;
+    --sidebar-accent-foreground: 248 250 252;
+    --sidebar-border: 30 41 59;
+    --sidebar-ring: 129 140 248;
+    --crm-primary: 129 140 248;
+    --crm-primary-foreground: 15 23 42;
+    --crm-secondary: 168 85 247;
+    --crm-secondary-foreground: 248 250 252;
+    --crm-success: 34 197 94;
+    --crm-warning: 251 191 36;
+    --crm-info: 59 130 246;
+    --crm-danger: 220 38 38;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--crm-primary)) 0%, hsl(var(--crm-secondary)) 100%);
+  }
+  
+  .pipeline-stage {
+    @apply bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 
+           border-2 border-dashed border-slate-300 dark:border-slate-600 
+           rounded-lg transition-all duration-200 hover:border-slate-400 dark:hover:border-slate-500;
+  }
+  
+  .deal-card {
+    @apply bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 
+           hover:shadow-md transition-all duration-200 cursor-pointer;
+  }
+}

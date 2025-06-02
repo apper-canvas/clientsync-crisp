@@ -1,0 +1,124 @@
+{
+  "activities": [
+    {
+      "id": "1",
+      "type": "call",
+      "subject": "Follow-up call with TechCorp",
+      "description": "Discuss proposal details and timeline",
+      "contactId": "1",
+      "dealId": "1",
+      "assignedTo": "John Doe",
+      "dueDate": "2024-01-25T14:00:00Z",
+      "completed": false,
+      "createdAt": "2024-01-20T10:30:00Z"
+    },
+    {
+      "id": "2",
+      "type": "email",
+      "subject": "Send contract to InnovateTech",
+      "description": "Forward the final contract for review and signing",
+      "contactId": "2",
+      "dealId": "2",
+      "assignedTo": "Jane Smith",
+      "dueDate": "2024-01-24T09:00:00Z",
+      "completed": true,
+      "createdAt": "2024-01-18T16:30:00Z"
+    },
+    {
+      "id": "3",
+      "type": "meeting",
+      "subject": "Requirements gathering with Creative Studio",
+      "description": "Meet to discuss project requirements and scope",
+      "contactId": "3",
+      "dealId": "3",
+      "assignedTo": "Mike Johnson",
+      "dueDate": "2024-01-26T11:00:00Z",
+      "completed": false,
+      "createdAt": "2024-01-19T10:20:00Z"
+    },
+    {
+      "id": "4",
+      "type": "demo",
+      "subject": "Product demo for RetailPlus",
+      "description": "Demonstrate inventory management features",
+      "contactId": "4",
+      "dealId": "4",
+      "assignedTo": "Sarah Wilson",
+      "dueDate": "2024-01-27T15:00:00Z",
+      "completed": false,
+      "createdAt": "2024-01-20T15:45:00Z"
+    },
+    {
+      "id": "5",
+      "type": "call",
+      "subject": "Weekly check-in with HealthTech",
+      "description": "Project status update and next steps",
+      "contactId": "5",
+      "dealId": "5",
+      "assignedTo": "John Doe",
+      "dueDate": "2024-01-23T10:00:00Z",
+      "completed": true,
+      "createdAt": "2024-01-21T12:10:00Z"
+    },
+    {
+      "id": "6",
+      "type": "proposal",
+      "subject": "Submit proposal to Finance Group",
+      "description": "Send detailed proposal for analytics platform",
+      "contactId": "6",
+      "dealId": "6",
+      "assignedTo": "Jane Smith",
+      "dueDate": "2024-01-28T17:00:00Z",
+      "completed": false,
+      "createdAt": "2024-01-22T09:30:00Z"
+    },
+    {
+      "id": "7",
+      "type": "meeting",
+      "subject": "Contract negotiation with EduTech",
+      "description": "Negotiate terms and pricing",
+      "contactId": "7",
+      "dealId": "7",
+      "assignedTo": "Mike Johnson",
+      "dueDate": "2024-01-29T14:30:00Z",
+      "completed": false,
+      "createdAt": "2024-01-23T11:55:00Z"
+    },
+    {
+      "id": "8",
+      "type": "call",
+      "subject": "Discovery call with Global Logistics",
+      "description": "Understand current challenges and pain points",
+      "contactId": "8",
+      "dealId": "8",
+      "assignedTo": "Sarah Wilson",
+      "dueDate": "2024-01-30T13:00:00Z",
+      "completed": false,
+      "createdAt": "2024-01-24T14:40:00Z"
+    },
+    {
+      "id": "9",
+      "type": "email",
+      "subject": "Thank you note to Media House",
+      "description": "Express gratitude for choosing our services",
+      "contactId": "9",
+      "dealId": "9",
+      "assignedTo": "John Doe",
+      "dueDate": "2024-01-26T16:00:00Z",
+      "completed": true,
+      "createdAt": "2024-01-25T16:20:00Z"
+    },
+    {
+      "id": "10",
+      "type": "presentation",
+      "subject": "Present framework to Strategic Consulting",
+      "description": "Showcase our consulting methodology",
+      "contactId": "10",
+      "dealId": "10",
+      "assignedTo": "Jane Smith",
+      "dueDate": "2024-01-31T10:30:00Z",
+      "completed": false,
+      "createdAt": "2024-01-22T13:25:00Z"
+    }
+  ]
+}
