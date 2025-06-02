@@ -1,54 +1,182 @@
-import activityData from '../mockData/activities.json';
-
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
 export const activityService = {
   async getAll() {
-    await delay(300);
-    return [...activityData.activities];
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+
+      const params = {
+        fields: [
+          'Name', 'Tags', 'Owner', 'CreatedOn', 'CreatedBy', 
+          'ModifiedOn', 'ModifiedBy', 'title', 'type', 'due_date', 
+          'completed', 'contact_id'
+        ],
+        pagingInfo: {
+          limit: 100,
+          offset: 0
+        }
+      };
+
+      const response = await apperClient.fetchRecords('Activity1', params);
+      return response?.data || [];
+    } catch (error) {
+      console.error('Error fetching activities:', error);
+      throw error;
+    }
   },
   
   async getById(id) {
-    await delay(200);
-    const activity = activityData.activities.find(a => a.id === id);
-    if (!activity) throw new Error('Activity not found');
-    return { ...activity };
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+
+      const params = {
+        fields: [
+          'Name', 'Tags', 'Owner', 'CreatedOn', 'CreatedBy', 
+          'ModifiedOn', 'ModifiedBy', 'title', 'type', 'due_date', 
+          'completed', 'contact_id'
+        ]
+      };
+
+      const response = await apperClient.getRecordById('Activity1', id, params);
+      return response?.data;
+    } catch (error) {
+      console.error(`Error fetching activity with ID ${id}:`, error);
+      throw error;
+    }
   },
   
-  async create(activity) {
-    await delay(400);
-    const newActivity = {
-      id: Date.now().toString(),
-      ...activity,
-      createdAt: new Date().toISOString()
-    };
-    activityData.activities.push(newActivity);
-    return newActivity;
+  async create(activityData) {
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+
+      // Only include Updateable fields
+      const params = {
+        records: [{
+          Name: activityData.Name || '',
+          Tags: activityData.Tags || '',
+          Owner: activityData.Owner || '',
+          title: activityData.title || '',
+          type: activityData.type || 'Task',
+          due_date: activityData.due_date || '',
+          completed: activityData.completed || false,
+          contact_id: activityData.contact_id || ''
+        }]
+      };
+
+      const response = await apperClient.createRecord('Activity1', params);
+      if (response?.success && response?.results?.[0]?.success) {
+        return response.results[0].data;
+      }
+      throw new Error('Failed to create activity');
+    } catch (error) {
+      console.error('Error creating activity:', error);
+      throw error;
+    }
   },
   
   async update(id, updates) {
-    await delay(300);
-    const index = activityData.activities.findIndex(a => a.id === id);
-    if (index === -1) throw new Error('Activity not found');
-    activityData.activities[index] = { ...activityData.activities[index], ...updates };
-    return activityData.activities[index];
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+
+      // Only include Updateable fields plus ID
+      const params = {
+        records: [{
+          Id: id,
+          Name: updates.Name,
+          Tags: updates.Tags,
+          Owner: updates.Owner,
+          title: updates.title,
+          type: updates.type,
+          due_date: updates.due_date,
+          completed: updates.completed,
+          contact_id: updates.contact_id
+        }]
+      };
+
+      const response = await apperClient.updateRecord('Activity1', params);
+      if (response?.success && response?.results?.[0]?.success) {
+        return response.results[0].data;
+      }
+      throw new Error('Failed to update activity');
+    } catch (error) {
+      console.error('Error updating activity:', error);
+      throw error;
+    }
   },
   
   async delete(id) {
-    await delay(300);
-    const index = activityData.activities.findIndex(a => a.id === id);
-    if (index === -1) throw new Error('Activity not found');
-    activityData.activities.splice(index, 1);
-    return { success: true };
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+
+      const params = {
+        RecordIds: [id]
+      };
+
+      const response = await apperClient.deleteRecord('Activity1', params);
+      if (response?.success) {
+        return { success: true };
+      }
+      throw new Error('Failed to delete activity');
+    } catch (error) {
+      console.error('Error deleting activity:', error);
+      throw error;
+    }
   },
 
   async getByContact(contactId) {
-    await delay(250);
-    return activityData.activities.filter(activity => activity.contactId === contactId);
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+
+      const params = {
+        fields: [
+          'Name', 'Tags', 'Owner', 'CreatedOn', 'CreatedBy', 
+          'ModifiedOn', 'ModifiedBy', 'title', 'type', 'due_date', 
+          'completed', 'contact_id'
+        ],
+        where: [
+          {
+            fieldName: 'contact_id',
+            operator: 'EqualTo',
+            values: [contactId]
+          }
+        ],
+        pagingInfo: {
+          limit: 100,
+          offset: 0
+        }
+      };
+
+      const response = await apperClient.fetchRecords('Activity1', params);
+      return response?.data || [];
+    } catch (error) {
+      console.error('Error fetching activities by contact:', error);
+      throw error;
+    }
   },
 
   async markCompleted(id) {
-    await delay(200);
     return this.update(id, { completed: true });
   }
 };
